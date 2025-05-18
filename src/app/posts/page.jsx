@@ -1,11 +1,17 @@
 import React from "react";
-import Card from "../components/post/Card";
-import { allPosts } from "../actions/post";
+import Card from "@/components/post/Card";
+import { allPosts } from "@/actions/post";
+import getAuthUser from "@/lib/getAuthUser";
+import { redirect } from "next/navigation";
 
 async function Posts() {
-  const posts = await allPosts();
+  const userAuth = await getAuthUser();
+  if (!userAuth) {
+    return redirect("/login");
+  }
+  const posts = await allPosts({ author: userAuth.payload.userId });
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
       {posts && posts.length > 0 ? (
         posts.map((post, idx) => <Card post={post} key={idx} />)
       ) : (

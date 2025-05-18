@@ -1,9 +1,9 @@
 "use server";
 
-import { getColct } from "../lib/db";
-import { RegisterFormSchema } from "../lib/rule";
+import { getColct } from "@/lib/db";
+import { RegisterFormSchema } from "@/lib/rule";
 import bcrypt from "bcrypt";
-import { createSession, deleteSession } from "../lib/sessions";
+import { createSession, deleteSession } from "@/lib/sessions";
 import { redirect } from "next/navigation";
 
 export async function register(state, formData) {

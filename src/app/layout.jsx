@@ -1,6 +1,6 @@
 import "./globals.css";
 import localFont from "next/font/local";
-import Navbar from "./components/Navbar";
+import Navbar from "@/components/Navbar";
 
 const myFont = localFont({
   src: "./fonts/MTLmr3m.ttf",

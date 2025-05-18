@@ -1,5 +1,5 @@
 import React from "react";
-import CreateForm from "../../components/Post/CreateForm";
+import CreateForm from "@/components/Post/CreateForm";
 function PostCreate() {
   return (
     <div>

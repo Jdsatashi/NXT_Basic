@@ -1,15 +1,20 @@
-import { getPost } from "@/app/actions/post";
-import BackButton from "@/app/components/BackButton";
-import Card from "@/app/components/post/Card";
+import { getPost } from "@/actions/post";
+import BackButton from "@/components/BackButton";
+import Card from "@/components/post/Card";
+import getAuthUser from "@/lib/getAuthUser";
 import React from "react";
 
 async function ShowItem({ params }) {
+  const userAuth = await getAuthUser();
   const { id } = await params;
   const post = await getPost(id);
   return post ? (
     <>
-      <BackButton />
-      <Card post={post} showContent={true} />
+      <Card
+        post={post}
+        showContent={true}
+        showEdit={post.author === userAuth.payload.userId}
+      />
     </>
   ) : (
     <div>Post not found</div>

@@ -1,5 +1,5 @@
 "use client";
-import { createPost } from "@/app/actions/post";
+import { createPost } from "@/actions/post";
 import React, { useActionState } from "react";
 
 function CreateForm() {

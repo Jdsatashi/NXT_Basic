@@ -1,7 +1,7 @@
 import NavLink from "./NavLink";
-import getAuthUser from "../lib/getAuthUser";
+import getAuthUser from "@/lib/getAuthUser";
 import React from "react";
-import { logout } from "../actions/auth";
+import { logout } from "@/actions/auth";
 async function Navbar() {
   const userAuth = await getAuthUser();
   return (
@@ -12,7 +12,7 @@ async function Navbar() {
       {userAuth ? (
         <div>
           <NavLink label="Dashboard" href="/dashboard" />
-          <NavLink label="Post" href="/posts/create" />
+          <NavLink label="Post" href="/posts" />
           <form action={logout}>
             <button className="nav-link">Logout</button>
           </form>
